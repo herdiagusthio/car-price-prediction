@@ -1,0 +1,178 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server for a car price prediction API.",
+        "title": "Car Price Prediction API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/predict": {
+            "post": {
+                "description": "Predict the price of a car based on its features.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Predict car price",
+                "parameters": [
+                    {
+                        "description": "Car Features",
+                        "name": "input",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/domain.UserInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/domain.PredictionResult"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/domain.ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/domain.ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "domain.ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string"
+                }
+            }
+        },
+        "domain.PredictionResult": {
+            "type": "object",
+            "properties": {
+                "predicted_price": {
+                    "type": "number"
+                }
+            }
+        },
+        "domain.UserInput": {
+            "type": "object",
+            "required": [
+                "aspiration",
+                "boreratio",
+                "brand",
+                "carbody",
+                "carheight",
+                "carlength",
+                "carwidth",
+                "citympg",
+                "compressionratio",
+                "curbweight",
+                "cylindernumber",
+                "doornumber",
+                "drivewheel",
+                "enginelocation",
+                "enginesize",
+                "enginetype",
+                "fuelsystem",
+                "fueltype",
+                "highwaympg",
+                "horsepower",
+                "peakrpm",
+                "stroke",
+                "wheelbase"
+            ],
+            "properties": {
+                "Symboling": {
+                    "description": "Numerical features",
+                    "type": "integer"
+                },
+                "aspiration": {
+                    "type": "string"
+                },
+                "boreratio": {
+                    "type": "number"
+                },
+                "brand": {
+                    "type": "string"
+                },
+                "carbody": {
+                    "type": "string"
+                },
+                "carheight": {
+                    "type": "number"
+                },
+                "carlength": {
+                    "type": "number"
+                },
+                "carwidth": {
+                    "type": "number"
+                },
+                "citympg": {
+                    "type": "integer"
+                },
+                "compressionratio": {
+                    "type": "number"
+                },
+                "curbweight": {
+                    "type": "integer"
+                },
+                "cylindernumber": {
+                    "type": "string"
+                },
+                "doornumber": {
+                    "type": "string"
+                },
+                "drivewheel": {
+                    "type": "string"
+                },
+                "enginelocation": {
+                    "type": "string"
+                },
+                "enginesize": {
+                    "type": "integer"
+                },
+                "enginetype": {
+                    "type": "string"
+                },
+                "fuelsystem": {
+                    "type": "string"
+                },
+                "fueltype": {
+                    "description": "Categorical features",
+                    "type": "string"
+                },
+                "highwaympg": {
+                    "type": "integer"
+                },
+                "horsepower": {
+                    "type": "integer"
+                },
+                "peakrpm": {
+                    "type": "integer"
+                },
+                "stroke": {
+                    "type": "number"
+                },
+                "wheelbase": {
+                    "type": "number"
+                }
+            }
+        }
+    }
+}

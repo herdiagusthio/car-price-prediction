@@ -1,0 +1,125 @@
+basePath: /
+definitions:
+  domain.ErrorResponse:
+    properties:
+      error:
+        type: string
+    type: object
+  domain.PredictionResult:
+    properties:
+      predicted_price:
+        type: number
+    type: object
+  domain.UserInput:
+    properties:
+      Symboling:
+        description: Numerical features
+        type: integer
+      aspiration:
+        type: string
+      boreratio:
+        type: number
+      brand:
+        type: string
+      carbody:
+        type: string
+      carheight:
+        type: number
+      carlength:
+        type: number
+      carwidth:
+        type: number
+      citympg:
+        type: integer
+      compressionratio:
+        type: number
+      curbweight:
+        type: integer
+      cylindernumber:
+        type: string
+      doornumber:
+        type: string
+      drivewheel:
+        type: string
+      enginelocation:
+        type: string
+      enginesize:
+        type: integer
+      enginetype:
+        type: string
+      fuelsystem:
+        type: string
+      fueltype:
+        description: Categorical features
+        type: string
+      highwaympg:
+        type: integer
+      horsepower:
+        type: integer
+      peakrpm:
+        type: integer
+      stroke:
+        type: number
+      wheelbase:
+        type: number
+    required:
+    - aspiration
+    - boreratio
+    - brand
+    - carbody
+    - carheight
+    - carlength
+    - carwidth
+    - citympg
+    - compressionratio
+    - curbweight
+    - cylindernumber
+    - doornumber
+    - drivewheel
+    - enginelocation
+    - enginesize
+    - enginetype
+    - fuelsystem
+    - fueltype
+    - highwaympg
+    - horsepower
+    - peakrpm
+    - stroke
+    - wheelbase
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: This is a sample server for a car price prediction API.
+  title: Car Price Prediction API
+  version: "1.0"
+paths:
+  /predict:
+    post:
+      consumes:
+      - application/json
+      description: Predict the price of a car based on its features.
+      parameters:
+      - description: Car Features
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/domain.UserInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/domain.PredictionResult'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/domain.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/domain.ErrorResponse'
+      summary: Predict car price
+swagger: "2.0"
