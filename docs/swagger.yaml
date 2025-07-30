@@ -12,7 +12,7 @@ definitions:
     type: object
   domain.UserInput:
     properties:
-      Symboling:
+      symboling:
         description: Numerical features
         type: integer
       aspiration:

@@ -145,6 +145,26 @@ go test -coverprofile=coverage.out ./...
 go tool cover -html=coverage.out
 ```
 
-## License
+## Model and Dataset
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+### Dataset
+This project uses the [Car Price Prediction Dataset](https://www.kaggle.com/datasets/hellbuoy/car-price-prediction) from Kaggle, which contains car specifications and prices for various models. The dataset includes:
+
+- **25 features** including both numerical and categorical attributes
+- **205 unique car models** across different brands
+- **Price range**: from ~$5,000 to ~$45,000
+- **Features include**: brand, fuel type, aspiration, car body style, drive wheel, engine specifications, dimensions, fuel efficiency, and more
+
+### Model
+The prediction model is a **Random Forest Regressor** trained on the Kaggle dataset with the following characteristics:
+
+- **Model Type**: Random Forest Regressor (ensemble method)
+- **Input Features**: 64 features after one-hot encoding categorical variables
+- **Target Variable**: Car price (continuous)
+- **Model Format**: ONNX (Open Neural Network Exchange)
+- **Performance**: Achieves high accuracy with R² score > 0.90 on test data
+- **Preprocessing**: Handles categorical variables through one-hot encoding and numerical scaling
+
+The model was trained using scikit-learn's RandomForestRegressor and exported to ONNX format for efficient inference across different platforms and languages.
+
+For detailed information about the model development process, including experimental stages, feature engineering decisions, and performance comparisons, see [Model Development Documentation](/docs/model/model_development_documentation.md).

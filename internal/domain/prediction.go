@@ -4,7 +4,7 @@ package domain
 // It contains all the car features needed for price prediction.
 type UserInput struct {
 	// Numerical features
-	Symboling        int     `json:"Symboling"` // Removed binding:"required"
+	Symboling        int     `json:"symboling"` // Removed binding:"required"`
 	Wheelbase        float32 `json:"wheelbase" binding:"required"`
 	Carlength        float32 `json:"carlength" binding:"required"`
 	Carwidth         float32 `json:"carwidth" binding:"required"`
