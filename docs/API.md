@@ -24,7 +24,7 @@ The request body must be a JSON object containing the car's features.
 
 | Field            | Type    | Description                               | Required |
 |------------------|---------|-------------------------------------------|----------|
-| `Symboling`      | integer | Its assigned insurance risk rating        | Yes      |
+| `symboling`      | integer | Its assigned insurance risk rating        | Yes      |
 | `wheelbase`      | float   | The distance between the centers of the front and rear wheels | Yes      |
 | `carlength`      | float   | The length of the car                     | Yes      |
 | `carwidth`       | float   | The width of the car                      | Yes      |
@@ -53,7 +53,7 @@ The request body must be a JSON object containing the car's features.
 
 ```json
 {
-    "Symboling": 3,
+    "symboling": 3,
     "wheelbase": 88.6,
     "carlength": 168.8,
     "carwidth": 64.1,

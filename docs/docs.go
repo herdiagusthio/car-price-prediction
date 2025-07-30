@@ -104,7 +104,7 @@ const docTemplate = `{
                 "wheelbase"
             ],
             "properties": {
-                "Symboling": {
+                "symboling": {
                     "description": "Numerical features",
                     "type": "integer"
                 },
